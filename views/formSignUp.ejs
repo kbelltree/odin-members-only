@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/htmlHead') %>
+  <body>
+    <main class="container formPageContainer">
+      <a class="cancelBtn svgBtn" href="/" aria-label="Cancel sign up">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x-circle"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+          <title>Cancel sign up</title>
+        </svg>
+      </a>
+      <h1 class="formPageTitle">Sign Up</h1>
+      <p><%= message %></p>
+      <%- include('partials/validationErrors') %>
+      <form action="/sign-up" method="POST">
+        <div class="inputGroup">
+          <label for="first">First Name</label>
+          <input
+            type="text"
+            id="first"
+            name="first"
+            autocapitalize="off"
+            autocorrect="off"
+            value="<%= inputValues ? inputValues.first : '' %>"
+          />
+        </div>
+        <div class="inputGroup">
+          <label for="last">Last Name</label>
+          <input
+            type="text"
+            id="last"
+            name="last"
+            autocapitalize="off"
+            autocorrect="off"
+            value="<%= inputValues ? inputValues.last : '' %>"
+          />
+        </div>
+        <div class="inputGroup">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            minlength="1"
+            maxlength="15"
+            autocapitalize="off"
+            autocorrect="off"
+            value="<%= inputValues ? inputValues.username : '' %>"
+          />
+          <p>User name length must be within 15</p>
+        </div>
+        <div class="inputGroup">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="8"
+            autocapitalize="off"
+            autocorrect="off"
+          />
+          <p>Length must be more than 8</p>
+        </div>
+        <div class="inputGroup">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" />
+          <p>Re-enter the password</p>
+        </div>
+        <button class="darkBtn submitBtn">Sign Up</button>
+      </form>
+    </main>
+  </body>
+</html>

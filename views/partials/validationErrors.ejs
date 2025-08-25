@@ -1,0 +1,7 @@
+<% if (validationErrors) { %>
+<ul class="errorMessageList">
+  <% validationErrors.forEach(error => { %>
+  <li class="errorMessageItem semiBold"><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>

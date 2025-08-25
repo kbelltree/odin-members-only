@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/htmlHead') %>
+  <body>
+    <main class="container formPageContainer">
+      <a
+        class="cancelBtn svgBtn"
+        href="/member-only"
+        aria-label="Cancel and return to the posts"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x-circle"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+          <title>Cancel and return to Posts</title>
+        </svg>
+      </a>
+      <h1 class="formPageTitle adminSignUpHeading">Admin Registration</h1>
+      <p class="adminSignUpText">
+        To register as an admin, enter the admin passcode.
+        <br>
+         For demonstration purposes, <strong class="highlight">the passcode is shown in the field
+        below.</strong>
+        </br>
+      </p>
+      <form action="/admin-registration" method="POST">
+        <div class="inputGroup">
+          <label for="passcode">Passcode</label>
+          <input
+            type="password"
+            name="adminPasscode"
+            id="passcode"
+            placeholder="Demo passcode: LoremIpsum"
+            autocapitalize="off"
+            autocorrect="off"
+            required
+          />
+        </div>
+        <%- include('partials/validationErrors') %>
+        <button class="darkBtn submitBtn">Enter</button>
+      </form>
+    </main>
+  </body>
+</html>

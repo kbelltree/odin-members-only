@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/htmlHead') %>
+  <body>
+    <main class="container formPageContainer">
+      <a
+        class="cancelBtn svgBtn"
+        href="/"
+        aria-label="Cancel and return to the posts"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x-circle"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+          <title>Cancel and return to Posts</title>
+        </svg>
+      </a>
+      <h1 class="formPageTitle joinHeading">Join the Club</h1>
+      <div class="joinTextContainer">
+        <p>Enter the secret passcode to unlock membership.</p>
+        <p>Click <strong>Get Passcode</strong> to reveal the code.</p>
+      </div>
+      <div class="joinPasscodeGroup">
+        <button
+          class="joinPasscodeBtn"
+          onclick="document.getElementById('joinPasscode').classList.remove('hidePasscode')"
+        >
+          Get Passcode
+        </button>
+        <div id="joinPasscode" class="hidePasscode">
+          <strong>
+            <p>"TheOdinProject"</p>
+          </strong>
+        </div>
+      </div>
+      <form action="/join" method="POST">
+        <div class="inputGroup">
+          <label for="passcode">Enter the passcode</label>
+          <input
+            type="password"
+            name="clubPasscode"
+            id="passcode"
+            autocapitalize="off"
+            autocorrect="off"
+            required
+          />
+          <%- include('partials/validationErrors') %>
+        </div>
+        <button class="darkBtn submitBtn">Enter</button>
+      </form>
+      <div class="joinTextContainer">
+        <p>
+          <%= message %>
+          <a class="joinLogin semiBold" href="/log-in">Log In</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

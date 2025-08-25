@@ -1,0 +1,25 @@
+<nav>
+  <% if (currentUser) { %>
+  <p class="navText spanAlignment">
+    You logged in as &nbsp;<strong><%= currentUser.username %></strong>
+    <% if (currentUser.is_admin) { %>
+    <span class="adminTag">Admin</span>
+    <% } %>
+  </p>
+  <ul class="navList">
+    <li>
+      <form action="/log-out" method="POST">
+        <button class="lightBtn formBtn">Log Out</button>
+      </form>
+    </li>
+  </ul>
+  <% } else { %>
+  <strong>
+    <p class="navText">You need to sign up or log in to post messages.</p>
+  </strong>
+  <ul class="navList">
+    <li><a class="darkBtn linkBtn" href="/sign-up">Sign Up</a></li>
+    <li><a class="lightBtn linkBtn" href="/log-in">Log In</a></li>
+  </ul>
+  <% } %>
+</nav>

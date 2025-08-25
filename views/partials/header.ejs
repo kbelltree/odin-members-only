@@ -1,0 +1,99 @@
+<header>
+  <%- include('authNav') %>
+  <% if (currentUser) { %>
+  <% if (!currentUser.is_admin) { %>
+  <div class="actionLinksContainer container">
+    <div>
+      <a class="actionLink" href="/admin-registration">Register as Admin</a>
+      <% if (!currentUser.is_member) { %>
+      <a class="actionLink" href="/join">Join the Club</a>
+      <% } %>
+    </div>
+    <nav>
+      <ul class="actionLinksList">
+        <li>
+          <a
+            class="svgBtn"
+            href="/create-message"
+            aria-label="Create a new message"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-edit"
+            >
+              <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              ></path>
+              <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+              ></path>
+              <title>Create New Message</title>
+            </svg></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <% } else { %>
+  <div class="actionLinksContainer container">
+    <div>
+      <% if (!currentUser.is_member) { %>
+      <a class="actionLink" href="/join">Join the Club</a>
+      <% } %>
+    </div>
+    <nav>
+      <ul class="actionLinksList">
+        <li>
+          <form action="/admin">
+            <label for="adminData">Go to Data:</label>
+            <select
+              name="dataTitle"
+              id="adminData"
+              onchange="this.form.submit()"
+            >
+              <option value="" selected>-- select --</option>
+              <option value="users">Users</option>
+              <option value="messages">Messages</option>
+            </select>
+          </form>
+        </li>
+        <li>
+          <a
+            class="svgBtn"
+            href="/create-message"
+            aria-label="Create a new message"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-edit"
+            >
+              <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              ></path>
+              <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+              ></path>
+              <title>Create New Message</title>
+            </svg></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <% } %>
+  <% } %>
+</header>

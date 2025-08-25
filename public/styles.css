@@ -1,0 +1,600 @@
+/* open-sans-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/open-sans-v43-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/open-sans-v43-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/open-sans-v43-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  --primary: #0c857a;
+  --primary-light: #cfeae7;
+  --secondary: #9333ea;
+  --background: #f8fafc;
+  --text-main: #1e293b;
+  --text-secondary: #64748b;
+  --accent: #ccfbf1;
+  --error: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+
+  /* iOS default reset */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text-main);
+}
+
+body,
+select {
+  font-family: 'open sans', sans-serif;
+  font-weight: 400;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 1.5em 1.5em 1em 1.5em;
+  border-bottom: solid 1px var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  height: 10.25em;
+}
+
+main {
+  flex-grow: 1;
+}
+
+article {
+  border-bottom: 0.5px solid var(--text-secondary);
+}
+
+footer {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 3em;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+strong {
+  font-family: 'open sans', sans-serif;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  appearance: none;
+  border: 3px solid var(--text-secondary);
+  padding: 0.5em;
+  border-radius: 8px;
+}
+
+/* iOS default reset*/
+select,
+option {
+  color: var(--text-main);
+  font: inherit;
+  background-color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.25em;
+  display: inline-block;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+svg {
+  display: block;
+
+  /* iOS default reset  */
+  stroke: var(--text-main);
+}
+
+button {
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  appearance: none;
+
+  /* iOS default reset */
+  color: inherit;
+}
+
+button:focus,
+button:active,
+a:focus,
+a:active {
+  transform: scale(0.95);
+}
+
+/* iOS default reset */
+button:visited,
+a:visited {
+  color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  button:hover {
+    opacity: 0.8;
+  }
+}
+
+.darkBtn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.darkBtn:visited {
+  color: white;
+}
+
+.lightBtn {
+  background-color: var(--primary-light);
+}
+
+.linkBtn,
+.formBtn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.75em 1em;
+  border-radius: 25px;
+}
+
+.svgBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  border-radius: 25px;
+  background-color: inherit;
+  margin-left: auto;
+}
+
+/* utility */
+.container {
+  min-width: 320px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.srOnly {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.lightTextColor {
+  color: var(--text-secondary);
+}
+
+.highlight {
+  background-color: var(--accent);
+}
+
+/* header */
+.actionLinksContainer {
+  width: 100%;
+  margin-top: 1.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionLinksContainer a,
+.actionLinksList form {
+  font-size: 0.75rem;
+}
+
+.actionLink {
+  border: 1px solid var(--text-main);
+  padding: 0.25em 0.5em;
+}
+
+.actionLink + .actionLink {
+  margin-left: 0.75em;
+}
+
+.actionLinksList {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.actionLinksList li {
+  /* remove irrelevant height spacing added to inner elements */
+  display: flex;
+  align-items: center;
+}
+
+/* authNav */
+.adminTag {
+  background-color: var(--secondary);
+  color: var(--background);
+  margin-left: 1em;
+  padding: 0.125em 0.25em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.navText {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.spanAlignment {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+/* index - message */
+/* main article:first-of-type {
+  margin-top: 1.25em;
+} */
+
+.messageContainer {
+  padding: 1em 0;
+}
+
+.messageContainer h2 {
+  font-size: 1rem;
+}
+
+.messageContainer p {
+  font-size: 0.875rem;
+}
+
+.messageInfoGroup {
+  text-align: right;
+}
+
+.messageContainer form {
+  padding-top: 0.5em;
+}
+
+/* formPages */
+.formPageContainer {
+  margin-top: 3em;
+}
+
+.formPageTitle {
+  margin-bottom: 0.5em;
+  font-size: 1.125rem;
+  font-weight: 600;
+  clear: both;
+}
+
+.formPageContainer form {
+  margin-top: 1.5em;
+}
+
+.cancelBtn {
+  float: right;
+  margin-bottom: -1.5em;
+}
+
+.cancelBtn svg {
+  width: 1.75em;
+  height: auto;
+}
+
+.submitBtn {
+  display: block;
+  margin: 1.5em auto;
+  padding: 0.75em 1.25em;
+  border-radius: 25px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.inputGroup + .inputGroup {
+  padding-top: 0.5em;
+}
+
+.inputGroup:last-child {
+  padding-bottom: 5em;
+}
+
+.inputGroup label,
+.inputGroup p {
+  font-size: 0.825rem;
+}
+
+.inputGroup label {
+  font-weight: 600;
+}
+
+.inputGroup p {
+  margin-left: 0.5em;
+}
+
+.errorMessageList {
+  list-style-type: disc;
+  padding-left: 1em;
+}
+
+.errorMessageItem {
+  margin-top: 0.25em;
+  font-size: 0.75em;
+  color: var(--error);
+}
+
+.joinHeading,
+.adminSignUpHeading {
+  line-height: 1.6;
+  margin-bottom: 1.25;
+  text-align: center;
+  clear: both;
+}
+
+.joinTextContainer,
+.adminSignUpText {
+  width: 90%;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.joinPasscodeGroup {
+  width: 50%;
+  margin: 1em auto;
+  text-align: center;
+  height: 4.5em;
+}
+
+.joinPasscodeBtn {
+  padding: 0.5em;
+  border: 1.5px solid var(--secondary);
+  color: var(--secondary);
+  background: var(--background);
+}
+
+.hidePasscode {
+  display: none;
+}
+
+.joinPasscodeGroup div {
+  padding-top: 0.75em;
+}
+
+.joinLogin {
+  text-decoration: underline;
+  font-size: 1rem;
+  display: inline;
+  white-space: nowrap;
+}
+
+.postMessageGroup {
+  padding-top: 1.5em;
+  position: relative;
+}
+
+.postMessageGroup form {
+  margin-top: 3em;
+}
+
+.refreshBtn {
+  position: absolute;
+  top: 3.75em;
+  right: 0;
+}
+
+/* admin */
+.adminContainer {
+  overflow-x: auto;
+  padding: 1em 0;
+}
+
+.adminContainer h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.adminContainer h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 1.5em;
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.adminTable thead {
+  font-weight: 600;
+  background-color: var(--text-main);
+  color: var(--background);
+  text-align: center;
+}
+
+.adminTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.adminTable th,
+.adminTable td {
+  border: 1px solid #ddd;
+  padding: 0.25em 0.5em;
+}
+
+.adminDtTitleGroup {
+  display: flex;
+  align-items: center;
+}
+
+.adminCloseBtn {
+  margin-left: 0.5em;
+}
+
+.messageDeleteSvg {
+  width: 1.75em;
+  height: auto;
+}
+
+.messageDeleteBtn {
+  margin: auto;
+}
+
+@media (min-width: 451px) {
+  header {
+    padding-top: 2em;
+    height: 13.5em;
+  }
+
+  footer {
+    font-size: 1rem;
+    padding-bottom: 1em;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  .linkBtn,
+  .formBtn {
+    font-size: 1rem;
+  }
+
+  .svgBtn svg {
+    width: 2em;
+    height: auto;
+  }
+
+  /* header */
+  .actionLinksContainer a {
+    font-size: 1rem;
+  }
+
+  .actionLinksList form {
+    font-size: 1rem;
+  }
+
+  /* authNav */
+  .adminTag {
+    font-size: 1rem;
+  }
+
+  /* index - message */
+  .messageContainer {
+    width: 70%;
+    max-width: 1000px;
+  }
+
+  .messageContainer h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25em;
+  }
+
+  .messageContainer p {
+    font-size: 1rem;
+  }
+
+  .svgBtn .messageDeleteSvg {
+    width: 1.75em;
+  }
+
+  /* formPages */
+  .formPageContainer {
+    max-width: 600px;
+    width: 50%;
+  }
+
+  .formPageTitle {
+    font-size: 1.5rem;
+  }
+
+  .inputGroup label,
+  .inputGroup p {
+    font-size: 1.125rem;
+  }
+
+  .errorMessageItem {
+    font-size: 1rem;
+  }
+
+  /* admin */
+  .adminContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .adminContainer h2 {
+    font-size: 1.25rem;
+  }
+
+  .adminTable {
+    font-size: 1rem;
+  }
+}
