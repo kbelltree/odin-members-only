@@ -11,7 +11,7 @@ const SQL = `
 async function dropTables() {
   console.log('drop table processing...');
   const client = new Client({
-    connectionString: process.env.DEV_DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
   });
   await client.connect();
   try {
