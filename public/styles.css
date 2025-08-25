@@ -503,7 +503,7 @@ a:visited {
 @media (min-width: 451px) {
   header {
     padding-top: 2em;
-    height: 13.5em;
+    height: 12.5em;
   }
 
   footer {
@@ -578,11 +578,15 @@ a:visited {
 
   .inputGroup label,
   .inputGroup p {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .errorMessageItem {
     font-size: 1rem;
+  }
+
+  .refreshBtn svg {
+    width: 1.5em;
   }
 
   /* admin */
