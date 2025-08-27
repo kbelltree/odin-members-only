@@ -15,7 +15,10 @@
             <p class="semiBold"><%= message.username %></p>
             <% } %>
             <% if (message.timestamp) { %>
-            <p class="lightTextColor"><%= message.timestamp %></p>
+            <p
+              class="lightTextColor formatTs"
+              data-ts="<%= message.timestamp %>"
+            ></p>
             <% } else {
               %>
             <p class="lightTextColor">(author and time hidden)</p>
@@ -59,5 +62,6 @@
       <% }) %>
     </main>
     <%- include('partials/footer') %>
+    <script src="/uiEventHandlers.js"></script>
   </body>
 </html>

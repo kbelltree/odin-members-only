@@ -15,10 +15,9 @@ async function getMemberOnlyMessages(req, res) {
     pageTitle: 'All Posts',
     messages: messages.map((message) => ({
       ...message,
-      timestamp: new Date(message.timestamp).toLocaleString(undefined, {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-      }),
+      // To avoid timezone issues on Render (which runs in UTC), pass the raw ISO timestamp
+      // and format it in the browser using client-side JavaScript for accurate local time display
+      timestamp: message.timestamp.toISOString(),
     })),
   });
 }
@@ -32,15 +31,9 @@ async function getAdminDataByTitle(req, res) {
     fetchedData = await db.fetchMessagesAdmin();
     fetchedData = fetchedData.map((data) => ({
       ...data,
-      timestamp: new Date(data.timestamp).toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      }),
+      // To avoid timezone issues on Render (which runs in UTC), pass the raw ISO timestamp
+      // and format it in the browser using client-side JavaScript for accurate local time display
+      timestamp: data.timestamp.toISOString(),
     }));
   } else {
     return res.status(404).send('Data not found.');
