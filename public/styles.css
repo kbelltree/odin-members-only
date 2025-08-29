@@ -550,7 +550,7 @@ a:visited {
   /* index - message */
   .messageContainer {
     width: 70%;
-    max-width: 1000px;
+    max-width: 500px;
   }
 
   .messageContainer h2 {
