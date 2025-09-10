@@ -54,7 +54,7 @@ function getNewUserForm(req, res) {
   });
 }
 
-async function createNewUser(req, res) {
+async function createNewUser(req, res, next) {
   const { first, last, username, password } = req.body;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -62,7 +62,7 @@ async function createNewUser(req, res) {
       pageTitle: 'Sign Up',
       message: null,
       validationErrors: errors.array(),
-      inputValues: { first: first, last: last, username: username },
+      inputValues: { first, last, username },
     });
   }
   const rows = await db.registerNewUser(first, last, username, password);
@@ -71,7 +71,7 @@ async function createNewUser(req, res) {
       pageTitle: 'Sign Up',
       message: 'The username is already taken.',
       validationErrors: null,
-      inputValues: { first: first, last: last, username: username },
+      inputValues: { first, last, username },
     });
   }
   // automatically log in after successful sign up - this will also enable accessing req.users
