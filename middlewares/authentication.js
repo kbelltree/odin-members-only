@@ -2,7 +2,7 @@ const passport = require('passport');
 
 const authenticateLocal = passport.authenticate('local', {
   failureRedirect: '/log-in',
-  successRedirect: 'member-only',
+  successRedirect: '/member-only',
 });
 
 function redirectIfAuthenticated(req, res, next) {
